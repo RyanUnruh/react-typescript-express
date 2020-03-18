@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "react-dom";
+// import { render } from "react-dom";
 
 export default class List extends React.Component<IListProps, IListState> {
   constructor(props: IListProps) {
@@ -22,5 +22,5 @@ export default class List extends React.Component<IListProps, IListState> {
 interface IListProps {}
 
 interface IAppState {
-  name: string;
+  names: Array<string>;
 }

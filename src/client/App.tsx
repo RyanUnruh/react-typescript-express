@@ -1,29 +1,22 @@
 import * as React from "react";
 import List from "./List";
+import "./scss/app";
 
-import './scss/app'
-
-class App extends React.Component<IAppProps, IAppState> {
+export default class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
     super(props);
-    this.state = {
-      name: null
-    };
+    this.state = { name: null };
   }
 
   async componentWillMount() {
-    try {
-      let r = await fetch("/api/hello");
-      let name = await r.json();
-      this.setState({ name });
-    } catch (error) {
-      console.log(error);
-    }
+    let r = await fetch("/api/hello");
+    let name = await r.json();
+    this.setState({ name });
   }
 
   render() {
     return (
-      <main className='container my-5'>
+      <main className='container'>
         <List></List>
       </main>
     );
@@ -35,5 +28,3 @@ export interface IAppProps {}
 export interface IAppState {
   name: string;
 }
-
-export default App;
