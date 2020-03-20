@@ -1,5 +1,5 @@
 import React from "react";
-// import { render } from `"react-dom";
+import { Link } from "react-router-dom";
 
 export default class List extends React.Component<IListProps, IListState> {
   constructor(props: IListProps) {
@@ -10,12 +10,17 @@ export default class List extends React.Component<IListProps, IListState> {
   }
 
   render() {
-    return;
-    <ul className='list-group'>
-      {this.state.names.map(name => {
-        return <li className='list-group-item'>{name}</li>;
-      })}
-    </ul>;
+    return (
+      <ul className="list-group">
+        {this.state.names.map(name => {
+          return (
+            <li className="list-group-item">
+              <Link to={`/${name}`}>{name}</Link>
+            </li>
+          );
+        })}
+      </ul>
+    );
   }
 }
 

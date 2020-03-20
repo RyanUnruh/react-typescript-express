@@ -1,6 +1,8 @@
 import * as React from "react";
-import List from "./List";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import "./scss/app";
+import List from "./List";
 
 export default class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
@@ -16,15 +18,19 @@ export default class App extends React.Component<IAppProps, IAppState> {
 
   render() {
     return (
-      <main className='container'>
-        <List></List>
+      <main className="container">
+        <Router>
+          <Switch>
+            <Route exact path="/" component={List} />
+          </Switch>
+        </Router>
       </main>
     );
   }
 }
 
-export interface IAppProps {}
+interface IAppProps {}
 
-export interface IAppState {
+interface IAppState {
   name: string;
 }
