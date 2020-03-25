@@ -5,7 +5,7 @@ export default class List extends React.Component<IListProps, IListState> {
   constructor(props: IListProps) {
     super(props);
     this.state = {
-      names: ["matt", "luke", "will"]
+      names: ["Mother", "Owen", "wilson"]
     };
   }
 

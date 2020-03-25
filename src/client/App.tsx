@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import "./scss/app";
 import List from "./List";
+import Detail from "./Detail";
 
 export default class App extends React.Component<IAppProps, IAppState> {
   constructor(props: IAppProps) {
     super(props);
     this.state = { name: null };
   }
-
+  // Test
   async componentWillMount() {
     let r = await fetch("/api/hello");
     let name = await r.json();
@@ -22,6 +23,7 @@ export default class App extends React.Component<IAppProps, IAppState> {
         <Router>
           <Switch>
             <Route exact path="/" component={List} />
+            <Route path="/:name" component={Detail} />
           </Switch>
         </Router>
       </main>
